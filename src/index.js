@@ -24,7 +24,7 @@ const appReady = async () => {
   //* Setup MenuBar
   require('./tray/createTray').run();
   require('./tray/autoLaunch').add();
-  require('./tray/checkUpdate').check();
+  require('./tray/checkUpdate').check(true);
 
   /* CHECK VALID USER VK */
   if (userSettings.get('VK_User_Id') == undefined) {
