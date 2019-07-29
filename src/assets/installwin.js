@@ -5,7 +5,7 @@ resultPromise = electronInstaller.createWindowsInstaller({
   appDirectory: './tempdir/SM Discord-win32-ia32',
   outputDirectory: './tempdir/installers/',
   exe: './SM Discord.exe',
-  iconUrl: "https://cdn.discordapp.com/attachments/588752238130757642/605457834737664010/icon.ico",
+  iconUrl: "https://raw.githubusercontent.com/DivineGSocketUser/SM-Discord/master/src/img/icon.ico",
   noMsi: true
 });
 
