@@ -4,8 +4,7 @@
 #
 ### Установка:
 1. Установить расширение для вашего браузера из папки **extension**
-2. Скачать приложение:
-![Windows](https://github.com/DivineGSocketUser/SM-Discord/releases/lastest "Windows")
+2. Скачать приложение:[Windows](https://github.com/DivineGSocketUser/SM-Discord/releases/lastest "Windows")
 ### Настройка для ВКонтакте
 
 1. Открыть приложение в трее [ПКМ].
