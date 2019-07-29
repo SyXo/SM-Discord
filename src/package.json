@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . --out=./tempdir/ --overwrite --platform=win32 --arch=ia32 --prune=true --icon=./img/icon.ico",
+    "build": "electron-packager . --out=./tempdir/ --overwrite --platform=win32 --arch=ia32 --prune=true --icon=./assets/img/icon.ico",
     "inswin": "npm run build && node assets/installwin"
   },
   "dependencies": {
