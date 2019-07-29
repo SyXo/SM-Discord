@@ -13,7 +13,7 @@ module.exports = (data) => {
         largeImageKey: 'logo',
         largeImageText: 'Смотрит аниме',
         smallImageKey: 'ava',
-        smallImageText: 'Someone',
+        smallImageText: 'SM Discord',
         instance: false
     }
 

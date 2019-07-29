@@ -8,7 +8,7 @@ module.exports = (data) => {
         largeImageKey: 'logo',
         largeImageText: 'Читает мангу',
         smallImageKey: 'ava',
-        smallImageText: 'Someone',
+        smallImageText: 'SM Discord',
         instance: false
     }
 

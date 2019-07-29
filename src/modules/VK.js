@@ -44,7 +44,7 @@ async function run() {
                 largeImageKey: 'logo',
                 largeImageText: 'Слушает музыку',
                 smallImageKey: 'ava',
-                smallImageText: 'Someone',
+                smallImageText: 'SM Discord',
                 instance: false,
             }
 
