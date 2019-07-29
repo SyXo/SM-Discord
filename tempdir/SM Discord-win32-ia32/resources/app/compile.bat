@@ -1,0 +1,1 @@
+npm run build && node installer_assets/installer
