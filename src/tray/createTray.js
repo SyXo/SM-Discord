@@ -11,7 +11,7 @@ var configVK = () => require('../other/ConfigModule').newUserId();
 var checkUpdate = () => require('./checkUpdate').check();
 
 exports.run = () => {
-  TRAY = new Tray(path.join(__dirname, "../img/icon.png"))
+  TRAY = new Tray(path.join(__dirname, "../assets/img/icon.png"))
   var contextMenu = Menu.buildFromTemplate([
     {
       label: "SM Discord v0.1",
@@ -95,7 +95,7 @@ function checkBoxChange(item, ConfigItem, Label) {
   new Notification({
     title:"SM Discord",
     body:`Вы ${item.checked == true ? "включили" : "отключили"} поддержку ${Label}!`,
-    icon: path.join(__dirname, "../img/logo.png"),
+    icon: path.join(__dirname, "../assets/img/logo.png"),
     silent: true
   }).show()
 }

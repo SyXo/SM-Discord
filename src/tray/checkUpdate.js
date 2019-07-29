@@ -22,16 +22,26 @@ async function check() {
         
         var version = body.tag_name.replace('v', '');
         if(version > PVERSION){
+            autoUpdater.checkForUpdates()
         } else {
             new Notification({
                 title: 'SM Discord',
                 body: 'У вас установлена последняя версия!',
-                icon: path.join(__dirname, "../img/logo.png"),
+                icon: path.join(__dirname, "../assets/img/logo.png"),
                 silent: true
             }).show();
         }
     })
 }
+
+autoUpdater.on('update-downloaded', (info) => {
+    // Wait 5 seconds, then quit and install
+    // In your application, you don't need to wait 5 seconds.
+    // You could call autoUpdater.quitAndInstall(); immediately
+    setTimeout(function() {
+      autoUpdater.quitAndInstall();  
+    },5000)
+  })
 
 module.exports = {
     check
