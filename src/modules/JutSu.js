@@ -7,16 +7,17 @@ module.exports = (data) => {
 
     const template = {
         details: data.name,
+        state: data.options,
         startTimestamp: startTimeStamp,
         endTimestamp: endTimeStamp,
         largeImageKey: 'logo',
-        largeImageText: 'PornHub <3',
+        largeImageText: 'Смотрит аниме',
         smallImageKey: 'ava',
         smallImageText: 'SM Discord',
-        instance: false,
+        instance: false
     }
 
-    PresenceModule.setRPC(data.type, `603938932815560714`, template);
+    PresenceModule.setRPC(data.type, `605777473694597121`, template);
 }
 
 function startTime(time) {

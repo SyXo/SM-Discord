@@ -40,6 +40,14 @@ exports.run = () => {
             click: function (item) {
               checkBoxChange(item, 'MangaLib', 'Mangalib')
             }
+          },
+          {
+            label: 'JutSu',
+            type: 'checkbox',
+            check: userSettings.get('JutSu') == true ? true : false,
+            click: function(item) {
+              checkBoxChange(item, 'JutSu', 'Jut.su')
+            }
           }]
         },
         {
@@ -93,8 +101,8 @@ exports.run = () => {
 function checkBoxChange(item, ConfigItem, Label) {
   userSettings.set(ConfigItem, item.checked)
   new Notification({
-    title:"SM Discord",
-    body:`Вы ${item.checked == true ? "включили" : "отключили"} поддержку ${Label}!`,
+    title: "SM Discord",
+    body: `Вы ${item.checked == true ? "включили" : "отключили"} поддержку ${Label}!`,
     icon: path.join(__dirname, "../assets/img/logo.png"),
     silent: true
   }).show()

@@ -1,5 +1,5 @@
-const moment = require('moment');
 const PresenceModule = require('./PresenceModule');
+const moment = require('moment');
 
 module.exports = (data) => {
     var startTimeStamp = data.time == null ? false : startTime(data.time)

@@ -61,4 +61,5 @@ document.getElementsByTagName("pjsdiv")[17].addEventListener('click', changeDura
 window.onload = (event) => {
     document.getElementById('playlist-d').click()
 }
+
 window.onbeforeunload = onBeforeUnload;

@@ -1,4 +1,6 @@
 const { BrowserWindow } = require('electron');
+const debug = require('electron-debug');
+debug();
 
 let win;
 
