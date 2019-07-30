@@ -22,11 +22,11 @@
 ---
 
 ### Поддерживаемые сервисы:
-| Anime      |  NSFW   |     Music |
-| :--------- | :-----: | --------: |
-| AniLibiria | PornHub | ВКонтакте |
-| MangaLib   |         |           |
-| JutSu      |         |           |
+| Anime    |  NSFW   |     Music |
+| :------- | :-----: | --------: |
+| AniMedia | PornHub | ВКонтакте |
+| MangaLib |         |           |
+| JutSu    |         |           |
 
 >Если вы хотите, чтобы добавили **ваш сервис**, то напишите в **discord:** *someone#6191*
 
