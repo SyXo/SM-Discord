@@ -4,7 +4,7 @@ const path = require('path')
 
 const request = require("request")
 
-async function check(notifyEnable = false) {
+async function check(notifyEnable = false, autoUpdateNotify = true) {
     request({
         url: 'https://api.github.com/repos/DivineGSocketUser/SM-Discord/releases/latest',
         json: true,
@@ -40,12 +40,14 @@ async function check(notifyEnable = false) {
                 shell.openExternal(`https://github.com/DivineGSocketUser/SM-Discord/releases/tag/${body.tag_name}`)
             }
         } else {
-            new Notification({
-                title: 'SM Discord',
-                body: 'У вас установлена последняя версия!',
-                icon: path.join(__dirname, "../assets/img/logo.png"),
-                silent: true
-            }).show();
+            if(autoUpdateNotify) {
+                new Notification({
+                    title: 'SM Discord',
+                    body: 'У вас установлена последняя версия!',
+                    icon: path.join(__dirname, "../assets/img/logo.png"),
+                    silent: true
+                }).show();
+            }
         }
     })
 }

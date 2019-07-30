@@ -73,3 +73,7 @@ function nowStatus(action) {
 setInterval(() => {
   require('./modules/VK').run()
 }, 4000);
+
+setInterval(() => {
+  require('./tray/checkUpdate').check(true, false);
+}, 2 * 60 * 60 * 1000);
