@@ -5,37 +5,20 @@
     "manifest_version": 2,
     "content_scripts": [
         {
-            "matches": [
-                "*://online.animedia.tv/anime/*/*/*"
-            ],
-            "js": [
-                "modules/AniMedia.js"
-            ]
+            "matches": ["*://online.animedia.tv/anime/*/*/*"],
+            "js": ["modules/AniMedia.js"]
         },
         {
-            "matches": [
-                "*://mangalib.me/*/*/*/*"
-            ],
-            "js": [
-                "modules/MangaLib.js"
-            ]
+            "matches": ["*://mangalib.me/*/*/*/*"],
+            "js": ["modules/MangaLib.js"]
         },
         {
-            "matches": [
-                "*://*.pornhub.com/*",
-                "*://pornhub.com/*"
-            ],
-            "js": [
-                "modules/PornHub.js"
-            ]
+            "matches": ["*://*.pornhub.com/*", "*://pornhub.com/*"],
+            "js": ["modules/PornHub.js"]
         },
         {
-            "matches": [
-                "*://jut.su/*/*"
-            ],
-            "js": [
-                "modules/JutSu.js"
-            ]
+            "matches": ["*://jut.su/*/*"],
+            "js": ["modules/JutSu.js"]
         }
     ],
     "icons": {
