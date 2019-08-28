@@ -2,7 +2,7 @@ const { app } = require('electron');
 
 if (!app.isPackaged) {
   process.stdout.write("\u001b[2J\u001b[0;0H");
-  // require('electron-debug')();
+  require('electron-debug')();
 }
 
 app.setAppUserModelId('This is a programm with large count of bugs!')
