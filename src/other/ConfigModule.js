@@ -1,6 +1,4 @@
 const { BrowserWindow } = require('electron');
-const debug = require('electron-debug');
-debug();
 
 let win;
 
@@ -10,12 +8,13 @@ async function newUserId() {
         center: true,
         maximizable: false,
         minimizable: false,
-        width: 270,
-        height: 140,
+        width: 210,
+        height: 89,
         show:true,
         webPreferences: {
             nodeIntegration:true
-        }
+        },
+        frame: false
     })
 
     win.on('closed', () => {

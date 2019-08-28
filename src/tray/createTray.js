@@ -44,7 +44,7 @@ exports.run = () => {
           {
             label: 'JutSu',
             type: 'checkbox',
-            check: userSettings.get('JutSu') == true ? true : false,
+            checked: userSettings.get('JutSu') == true ? true : false,
             click: function(item) {
               checkBoxChange(item, 'JutSu', 'Jut.su')
             }

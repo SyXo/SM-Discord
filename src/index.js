@@ -1,6 +1,9 @@
 const { app } = require('electron');
 
-if (!app.isPackaged) process.stdout.write("\u001b[2J\u001b[0;0H");
+if (!app.isPackaged) {
+  process.stdout.write("\u001b[2J\u001b[0;0H");
+  // require('electron-debug')();
+}
 
 app.setAppUserModelId('This is a programm with large count of bugs!')
 app.requestSingleInstanceLock()
@@ -20,7 +23,8 @@ global.DIRECTORY = __dirname;
 global.USERID = userSettings.get('VK_User_Id');
 global.PVERSION = require('./package.json').productVersion;
 
-const appReady = async () => {
+const appReady = async () =>
+{
   //* Setup MenuBar
   require('./tray/createTray').run();
   require('./tray/autoLaunch').add();
@@ -40,8 +44,10 @@ app.on('window-all-closed', () => { });
 const WebSocket = require('ws');
 const wss = new WebSocket.Server({ port: 8080 })
 
-wss.on('connection', ws => {
-  ws.on('message', message => {
+wss.on('connection', ws =>
+{
+  ws.on('message', message =>
+  {
     try {
       var data = JSON.parse(message);
       var state = nowStatus(data.action)
@@ -56,7 +62,8 @@ wss.on('connection', ws => {
   })
 })
 
-function nowStatus(action) {
+function nowStatus(action)
+{
   switch (action) {
     case 0:
       return "Exit";
@@ -70,10 +77,12 @@ function nowStatus(action) {
 }
 
 /* VK SERVICE */
-setInterval(() => {
+setInterval(() =>
+{
   require('./modules/VK').run()
 }, 4000);
 
-setInterval(() => {
+setInterval(() =>
+{
   require('./tray/checkUpdate').check(true, false);
 }, 2 * 60 * 60 * 1000);

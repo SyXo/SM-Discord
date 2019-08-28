@@ -8,49 +8,71 @@ const userSettings = new Config({
 var vk = new (require('vk-io'));
 vk.setToken("51b1623b51b1623b51b1623b6e51daa9c7551b151b1623b0c822e2a6ff26d2799c767bc");
 
-//IDK, what with this FUNCTION (BUGGED)
-var state = true;
-async function checkId(ID) {
-    if (ID == 0 || ID == undefined) return await state;
-    await vk.api.call("users.get", {
-        user_ids: Number(ID),
-    }).then(async (res) => {
-        if (res[0].deactivated) return await state;
-        state = false;
-    }).catch(async err => {
-        state = true;
-    })
-    return await state;
+async function checkId(ID)
+{
+    ID = Number(ID);
+
+    if (!ID || ID === 0) {
+        return false;
+    }
+
+    let state;
+
+    try {
+      const [
+        {
+          deactivated
+        }
+      ] = await vk.api.users.get({
+        user_ids: ID
+      });
+  
+      state = deactivated ? false : true;
+    } catch (e) {
+      state = false;
+    }
+  
+    return state;
 }
 
 var artist, title;
 
-async function run() {
+async function run()
+{
     USERID = userSettings.get('VK_User_Id');
-    await checkId(USERID).then(async (state) => {
-        if (state || !userSettings.get("VK") || lastaction == 1) return await PresenceModule.deleteRPC('VK');
-        await vk.api.call("users.get", {
-            user_ids: USERID,
-            fields: "status"
-        }).then(async (r) => {
-            if (!r[0].status_audio) return await PresenceModule.deleteRPC('VK');
+    const state = await checkId(USERID);
 
-            artist = r[0].status_audio.artist
-            title = r[0].status_audio.title
+    if (!state || !userSettings.get("VK") || lastaction == 1) {
+        await PresenceModule.deleteRPC('VK');
 
-            const template = {
-                details: "Автор - " + artist,
-                state: "Название - " + title,
-                largeImageKey: 'logo',
-                largeImageText: 'Слушает музыку',
-                smallImageKey: 'ava',
-                smallImageText: 'SM Discord',
-                instance: false,
-            }
+        return;
+    }
 
-            await PresenceModule.setRPC('VK', `602133205197258795`, template);
-        })
+    const [response] = await vk.api.users.get({
+        user_ids: USERID,
+        fields: "status"
     })
+
+    if (!response.status_audio) {
+        await PresenceModule.deleteRPC('VK');
+
+        return;
+    }
+
+    artist = response.status_audio.artist
+    title = response.status_audio.title
+
+    const template = {
+        details: "Автор - " + artist,
+        state: "Название - " + title,
+        largeImageKey: 'logo',
+        largeImageText: 'Слушает музыку',
+        smallImageKey: 'ava',
+        smallImageText: 'SM Discord',
+        instance: false,
+    }
+
+    await PresenceModule.setRPC('VK', `602133205197258795`, template);
 }
 
 module.exports = {
